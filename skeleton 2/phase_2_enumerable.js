@@ -46,3 +46,18 @@ Array.prototype.myEach = function(someBlock) {
 // let testCase = [1, 2, 3, 4]
 
 // console.log(testCase.myEach(multiplyer))
+
+const callback = function(acc, ele) {
+    return acc = acc + ele;
+
+};
+
+Array.prototype.myReduce = function(callback, initialValue) {
+    let result = 0;
+    if (initialValue === undefined) {
+        initialValue = this.splice(0, 1);
+    };
+    this.myEach(ele => result = callback(initialValue, ele)) 
+    return result
+};  
+
